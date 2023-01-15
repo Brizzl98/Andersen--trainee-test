@@ -11,6 +11,7 @@ class FormController extends Controller
     }
     public function submit(Request $request)
     {
+        #validation the fields
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
@@ -23,8 +24,6 @@ class FormController extends Controller
         $formData->message = $request->input('message');
         $formData->save();
         return redirect('form')->with('status', 'Your Form Data Has Been inserted');
-
-        //Handle the form data
     }
     public function displayFormData()
     {
