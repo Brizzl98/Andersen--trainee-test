@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <link rel="stylesheet" type="text/css" href="app/resources/app.css" />
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
     <body>
-    <form method="POST" action="/submit">
+    <form method="POST" action="/submit" class="submit-form">
         @csrf
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
@@ -20,9 +20,9 @@
             {{ session('status') }}
         </div>
     </div>
-    <table>
-        <tbody>
-        <tr>
+    <table class="form-data-table">
+        <tbody class="form-data-table-body">
+        <tr class="table-header">
             <th>Name</th>
             <th>Email</th>
             <th>Message</th>
