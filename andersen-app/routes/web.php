@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 Route::get('/form', [FormController::class, 'form']);
 Route::post('/submit', [FormController::class, 'submit']);
+Route::get('/form', [FormController::class, 'displayFormData']);
+

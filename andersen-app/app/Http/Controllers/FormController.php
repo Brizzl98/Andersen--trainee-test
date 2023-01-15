@@ -16,13 +16,19 @@ class FormController extends Controller
             'email' => 'required|email',
             'message' => 'required|string',
         ]);
-        $info = new Post;
-        $info->name = $request->name;
-        $info->email = $request->email;
-        $info->message = $request->message;
-        $info->save();
+
+        $formData = new Post();
+        $formData->name = $request->input('name');
+        $formData->email = $request->input('email');
+        $formData->message = $request->input('message');
+        $formData->save();
         return redirect('form')->with('status', 'Your Form Data Has Been inserted');
 
         //Handle the form data
+    }
+    public function displayFormData()
+    {
+        $formData = Post::all();
+        return view('form', compact('formData'));
     }
 }

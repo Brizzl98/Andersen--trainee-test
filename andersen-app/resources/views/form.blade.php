@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <link rel="stylesheet" type="text/css" href="app/resources/app.css" />
     </head>
     <body>
     <form method="POST" action="/submit">
@@ -18,6 +19,25 @@
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
+    </div>
+    <table>
+        <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Submitted at</th>
+        </tr>
+        @foreach($formData as $data)
+            <tr>
+                <td>{{ $data->name }}</td>
+                <td>{{ $data->email }}</td>
+                <td>{{ $data->message }}</td>
+                <td>{{ $data->created_at }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
         @endif
     </body>
 </html>
