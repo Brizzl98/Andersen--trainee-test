@@ -29,7 +29,7 @@
         </div>
         <button type="submit">Submit</button>
     </form>
-    <div class="container mt-4">
+    <div class="status container mt-4">
         @if(session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
