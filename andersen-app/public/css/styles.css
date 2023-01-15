@@ -59,4 +59,14 @@
     padding: 14px 20px;
     border-radius: 30px;
     border: solid 1px green;
-]}
+}
+
+.alert {
+    padding-top: 5px;
+}
+.is-invalid input,.is-invalid textarea {
+    border-bottom: 1px solid #FF0000;
+}
+.is-invalid label{
+    color: #FF0000;
+}

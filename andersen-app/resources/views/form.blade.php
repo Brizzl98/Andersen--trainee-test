@@ -6,12 +6,27 @@
     <body>
     <form method="POST" action="/submit" class="submit-form">
         @csrf
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <label for="message">Message:</label>
-        <textarea name="message" id="message" required></textarea>
+        <div class="@error('name') is-invalid @enderror">
+            <label for="name">Name:</label>
+            @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="@error('email') is-invalid @enderror">
+            <label for="email">Email:</label>
+            @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div class="@error('message') is-invalid @enderror">
+            <label for="message">Message:</label>
+            @error('message')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <textarea name="message" id="message" required></textarea>
+        </div>
         <button type="submit">Submit</button>
     </form>
     <div class="container mt-4">
